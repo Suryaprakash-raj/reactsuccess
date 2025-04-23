@@ -1,0 +1,83 @@
+/* Background with gradient */
+.contact-header {
+  background: linear-gradient(to right, #007bff, #0056b3);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.fade-in-top {
+  animation: fadeInTop 1s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 1s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 1s ease-out;
+}
+
+.hover-bounce:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.social-icons a {
+  margin-right: 15px;
+  font-size: 24px;
+  color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+#Contact{
+    padding: 30px;
+}

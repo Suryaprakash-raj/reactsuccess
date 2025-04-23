@@ -1,0 +1,252 @@
+/* About Page Styles with Professional Background Transformations */
+.about-page {
+    background: linear-gradient(135deg, #1e80e1 0%, #e9ecef 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-page::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(13, 110, 253, 0.05) 0%, transparent 70%);
+    animation: gradient-move 20s ease infinite;
+    z-index: 0;
+  }
+  
+  @keyframes gradient-move {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(25%, 15%);
+    }
+    50% {
+      transform: translate(10%, 25%);
+    }
+    75% {
+      transform: translate(-15%, 10%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  
+  .about-section {
+    padding-top: 80px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Professional Card Styles with Glass Morphism */
+  .about-card,
+  .skills-card,
+  .experience-card,
+  .education-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .about-card::before,
+  .skills-card::before,
+  .experience-card::before,
+  .education-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0d6efd 0%, #6c757d 100%);
+  }
+  
+  .about-card:hover,
+  .skills-card:hover,
+  .experience-card:hover,
+  .education-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 12px 40px rgba(13, 110, 253, 0.15);
+  }
+  
+  /* Modern Timeline Styles */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #0d6efd, #6c757d);
+    border-radius: 3px;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+  }
+  
+  .timeline-badge {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+  }
+  
+  .timeline-badge::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+  }
+  
+  .timeline-content {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-left: 3px solid #0d6efd;
+  }
+  
+  /* Animated Skill Progress Bars */
+  .progress {
+    background-color: rgba(233, 236, 239, 0.7);
+    border-radius: 6px;
+    height: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .progress-bar {
+    border-radius: 6px;
+    background: linear-gradient(90deg, #0d6efd 0%, #4dabf7 100%);
+    position: relative;
+    overflow: hidden;
+    transition: width 1.5s ease-in-out;
+  }
+  
+  .progress-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    animation: shine 2s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .about-section {
+      padding-top: 70px;
+    }
+  
+    .timeline::before {
+      left: 10px;
+    }
+  
+    .timeline-badge {
+      left: -22px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-section {
+      padding-top: 60px;
+    }
+  
+    .about-card,
+    .skills-card,
+    .experience-card,
+    .education-card {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: white;
+    }
+  
+    .timeline::before {
+      left: 8px;
+    }
+  
+    .timeline-badge {
+      left: -20px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+  
+  /* Section Headings */
+  h2.display-4 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+  
+  h2.display-4::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #0d6efd 0%, #4dabf7 100%);
+    border-radius: 2px;
+  }
+  
+  /* List Items */
+  .list-unstyled li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .list-unstyled li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #0d6efd;
+  }
+  #about{
+    padding: 20px;
+  }
