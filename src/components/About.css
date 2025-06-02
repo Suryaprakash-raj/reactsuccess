@@ -1,252 +1,196 @@
-/* About Page Styles with Professional Background Transformations */
+/* Video Background Styles */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Floating tech icons */
+.floating-tech-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.tech-icon {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0;
+  cursor: default;
+  pointer-events: auto;
+}
+
+.tech-tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tech-icon:hover .tech-tooltip {
+  opacity: 1;
+}
+
+/* Main content */
 .about-page {
-    background: linear-gradient(135deg, #1e80e1 0%, #e9ecef 100%);
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .about-page::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(13, 110, 253, 0.05) 0%, transparent 70%);
-    animation: gradient-move 20s ease infinite;
-    z-index: 0;
-  }
-  
-  @keyframes gradient-move {
-    0% {
-      transform: translate(0, 0);
-    }
-    25% {
-      transform: translate(25%, 15%);
-    }
-    50% {
-      transform: translate(10%, 25%);
-    }
-    75% {
-      transform: translate(-15%, 10%);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-  }
-  
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+.about-section {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+/* Cards styling */
+.about-card,
+.skills-card,
+.certifications-card,
+.experience-card,
+.education-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Timeline styling */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-badge {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0d6efd;
+  border: 3px solid white;
+}
+
+.timeline-content {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+/* Progress bars */
+.progress {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  border-radius: 10px;
+}
+
+/* Certifications grid */
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.certification-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Title underline */
+.title-underline {
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: #0d6efd;
+  margin: 10px auto;
+  transform-origin: center;
+}
+
+/* Text colors */
+.text-primary {
+  color: #0d6efd !important;
+}
+
+.text-muted {
+  color: rgba(151, 34, 34, 0.7) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-outline-primary {
+  color: rgb(165, 28, 28);
+  border-color: rgb(117, 25, 25);
+}
+
+.btn-outline-primary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgb(146, 4, 4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
   .about-section {
-    padding-top: 80px;
-    position: relative;
-    z-index: 1;
+    text-align: center;
   }
   
-  /* Professional Card Styles with Glass Morphism */
-  .about-card,
-  .skills-card,
-  .experience-card,
-  .education-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .about-card::before,
-  .skills-card::before,
-  .experience-card::before,
-  .education-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #0d6efd 0%, #6c757d 100%);
-  }
-  
-  .about-card:hover,
-  .skills-card:hover,
-  .experience-card:hover,
-  .education-card:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 12px 40px rgba(13, 110, 253, 0.15);
-  }
-  
-  /* Modern Timeline Styles */
   .timeline {
-    position: relative;
-    padding-left: 40px;
-  }
-  
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 12px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(to bottom, #0d6efd, #6c757d);
-    border-radius: 3px;
-  }
-  
-  .timeline-item {
-    position: relative;
-    margin-bottom: 40px;
+    padding-left: 0;
   }
   
   .timeline-badge {
-    position: absolute;
-    left: -40px;
-    top: 0;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    display: none;
   }
   
-  .timeline-badge::after {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: white;
-    border-radius: 50%;
+  .certifications-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .timeline-content {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border-left: 3px solid #0d6efd;
-  }
-  
-  /* Animated Skill Progress Bars */
-  .progress {
-    background-color: rgba(233, 236, 239, 0.7);
-    border-radius: 6px;
-    height: 10px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .progress-bar {
-    border-radius: 6px;
-    background: linear-gradient(90deg, #0d6efd 0%, #4dabf7 100%);
-    position: relative;
-    overflow: hidden;
-    transition: width 1.5s ease-in-out;
-  }
-  
-  .progress-bar::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.4) 50%,
-      rgba(255, 255, 255, 0.1) 100%
-    );
-    animation: shine 2s infinite;
-  }
-  
-  @keyframes shine {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 992px) {
-    .about-section {
-      padding-top: 70px;
-    }
-  
-    .timeline::before {
-      left: 10px;
-    }
-  
-    .timeline-badge {
-      left: -22px;
-      width: 20px;
-      height: 20px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .about-section {
-      padding-top: 60px;
-    }
-  
-    .about-card,
-    .skills-card,
-    .experience-card,
-    .education-card {
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      background: white;
-    }
-  
-    .timeline::before {
-      left: 8px;
-    }
-  
-    .timeline-badge {
-      left: -20px;
-      width: 16px;
-      height: 16px;
-    }
-  }
-  
-  /* Section Headings */
-  h2.display-4 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-  
-  h2.display-4::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #0d6efd 0%, #4dabf7 100%);
-    border-radius: 2px;
-  }
-  
-  /* List Items */
-  .list-unstyled li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 8px;
-  }
-  
-  .list-unstyled li::before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: #0d6efd;
-  }
-  #about{
-    padding: 20px;
-  }
+}

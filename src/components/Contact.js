@@ -1,10 +1,20 @@
 import React from "react";
 import Navbar from "./Navbar";
 import "./Contact.css";
+import backgroundVideo from "../assets/normal.mp4"; // Import your video file
 
 function Contact() {
   return (
-    <div>
+    <div className="contact-container">
+      {/* Background Video */}
+      <div className="video-background">
+        <video autoPlay loop muted playsInline>
+          <source src={backgroundVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="video-overlay"></div>
+      </div>
+      
       <Navbar />
 
       <div className="contact-header text-white py-5">
@@ -22,10 +32,10 @@ function Contact() {
             <ul className="list-unstyled">
               <li className="mb-3">
                 <strong>Email:</strong>{" "}
-                <a href="mailto:your@email.com">your@email.com</a>
+                <a href="mailto:your@email.com">suryaprakashr538@email.com</a>
               </li>
               <li className="mb-3">
-                <strong>Phone:</strong> +123 456 7890
+                <strong>Phone:</strong> +9600919516
               </li>
               <li className="mb-3">
                 <strong>Location:</strong> Coimbatore, India
@@ -65,7 +75,7 @@ function Contact() {
 
           {/* Contact Form */}
           <div className="col-md-6 slide-in-right">
-            <h2>Send a Message</h2>
+            <h2 id="send">Send a Message</h2>
             <form>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">Name</label>

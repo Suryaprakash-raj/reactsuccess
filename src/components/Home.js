@@ -5,32 +5,21 @@ import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import "./Home.css";
 import photo from "../assets/suryaimage.jpg";
+import backgroundVideo from "../assets/normal.mp4";
 
 function Home() {
   const navigate = useNavigate();
 
-  const navigateToAbout = () => {
-    navigate("/about");
-  };
-
-  const navigateToContact = () => {
-    navigate("/contact");
-  };
-
-  const navigateToProjects = () => {
-    navigate("/projects");
-  };
+  const navigateToAbout = () => navigate("/about");
+  const navigateToContact = () => navigate("/contact");
 
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
-      },
-    },
+      transition: { staggerChildren: 0.3, delayChildren: 0.2 }
+    }
   };
 
   const itemVariants = {
@@ -38,17 +27,24 @@ function Home() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
+      transition: { duration: 0.5 }
+    }
   };
 
   return (
     <div className="home-page">
-      {/* Animated Background Elements */}
-      <div className="background-animation">
-        {[...Array(15)].map((_, i) => (
+      {/* Video Background */}
+      <div className="video-background">
+        <video autoPlay loop muted playsInline className="video-bg">
+          <source src={backgroundVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="video-overlay"></div>
+      </div>
+
+      {/* Animated floating elements */}
+      <div className="floating-elements">
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             className="shape"
@@ -56,35 +52,35 @@ function Home() {
               opacity: 0,
               scale: 0,
               x: Math.random() * 100 - 50,
-              y: Math.random() * 100 - 50,
+              y: Math.random() * 100 - 50
             }}
             animate={{
-              opacity: [0, 0.3, 0],
-              scale: [0, 1.5, 0],
+              opacity: [0, 0.2, 0],
+              scale: [0, 1.2, 0],
               x: [
                 Math.random() * 100 - 50,
                 Math.random() * 200 - 100,
-                Math.random() * 100 - 50,
+                Math.random() * 100 - 50
               ],
               y: [
                 Math.random() * 100 - 50,
                 Math.random() * 200 - 100,
-                Math.random() * 100 - 50,
-              ],
+                Math.random() * 100 - 50
+              ]
             }}
             transition={{
               duration: Math.random() * 20 + 10,
               repeat: Infinity,
               repeatType: "reverse",
-              delay: Math.random() * 5,
+              delay: Math.random() * 5
             }}
             style={{
               position: "absolute",
-              width: `${Math.random() * 200 + 50}px`,
-              height: `${Math.random() * 200 + 50}px`,
+              width: `${Math.random() * 100 + 30}px`,
+              height: `${Math.random() * 100 + 30}px`,
               borderRadius: "50%",
               background: `rgba(13, 110, 253, ${Math.random() * 0.1})`,
-              zIndex: 0,
+              zIndex: 1
             }}
           />
         ))}
@@ -132,7 +128,7 @@ function Home() {
                     "Full Stack Engineer",
                     1000,
                     "Freelancer",
-                    1000,
+                    1000
                   ]}
                   wrapper="span"
                   speed={50}
@@ -140,7 +136,7 @@ function Home() {
                     fontSize: "1.5rem",
                     display: "inline-block",
                     fontWeight: 600,
-                    color: "#0d6efd",
+                    color: "#0d6efd"
                   }}
                   repeat={Infinity}
                 />
@@ -170,12 +166,7 @@ function Home() {
                 >
                   About Me
                 </button>
-                <button
-                  className="btn btn-outline-primary btn-lg px-4"
-                  onClick={navigateToProjects}
-                >
-                  Projects
-                </button>
+
                 <button
                   className="btn btn-outline-primary btn-lg px-4"
                   onClick={navigateToContact}
@@ -206,33 +197,73 @@ function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right Image with Floating Badges */}
-            <motion.div
-              className="col-lg-6 text-center"
-              variants={itemVariants}
-            >
+            {/* Enhanced Image Section */}
+            <motion.div className="col-lg-6 text-center" variants={itemVariants}>
               <div className="image-container position-relative">
                 <motion.div
                   className="profile-image-container"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
+                  whileHover={{
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
                 >
+                  {/* Glow Effect */}
+                  <motion.div
+                    className="glow-effect"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.3 }}
+                    transition={{ repeat: Infinity, duration: 2, repeatType: "mirror" }}
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: '50%',
+                      background: 'radial-gradient(circle, #0d6efd 0%, transparent 70%)',
+                      zIndex: 1,
+                    }}
+                  />
+
                   <motion.img
                     src={photo}
                     alt="Surya Prakash"
                     className="img-fluid rounded-circle shadow-lg"
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
+                    initial={{ scale: 0.9, opacity: 0, rotate: -5 }}
+                    animate={{ 
+                      scale: 1, 
+                      opacity: 1, 
+                      rotate: 0,
+                      y: [0, -15, 0],
+                    }}
                     transition={{
                       type: "spring",
                       stiffness: 100,
                       damping: 10,
                       delay: 0.4,
+                      y: {
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
                     }}
                     whileHover={{
                       scale: 1.05,
-                      boxShadow: "0px 10px 30px rgba(13, 110, 253, 0.3)",
+                      rotate: 3,
+                      boxShadow: "0px 10px 30px rgba(13, 110, 253, 0.5)",
+                      filter: 'brightness(1.1)',
+                      transition: {
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 15
+                      }
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                      rotate: -2
                     }}
                     style={{
                       border: "5px solid #ffffff",
@@ -243,29 +274,10 @@ function Home() {
                     }}
                   />
 
-                  {/* Experience Badge */}
-                  <motion.div
-                    className="experience-badge"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.8, type: "spring" }}
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <span>5+ Years</span>
-                    <small>Experience</small>
-                  </motion.div>
+                  {/* Floating Badges */}
+                  
 
-                  {/* Projects Badge */}
-                  <motion.div
-                    className="projects-badge"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 1, type: "spring" }}
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <span>50+</span>
-                    <small>Projects</small>
-                  </motion.div>
+                  
                 </motion.div>
               </div>
             </motion.div>
