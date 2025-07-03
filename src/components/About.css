@@ -181,16 +181,51 @@
   .about-section {
     text-align: center;
   }
-  
+
   .timeline {
     padding-left: 0;
   }
-  
+
   .timeline-badge {
     display: none;
   }
-  
+
   .certifications-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* General styles for skill percentage text */
+.skill-item .progress-bar + span {
+  color: #fff; /* White text */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Dark shadow for contrast */
+  font-weight: bold;
+}
+
+/* Optional: Additional styles for progress bar */
+.progress {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+/* General styles for skill percentage text */
+.skill-item .progress-bar + span {
+  color: #fff; /* White text */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Dark shadow for contrast */
+  font-weight: bold;
+}
+
+/* Optional: Additional styles for progress bar */
+.progress {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  border-radius: inherit;
+  transition: width 0.3s ease;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 import Home from "./components/Home";
 import About from "./components/About";
@@ -13,11 +13,15 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/about" element={<About />} />
         <Route path="/project" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
-        
+
+        {/* Optional Redirect Route */}
+        <Route path="/reactsuccess" element={<Navigate to="/" replace />} />
+
+        {/* Fallback Route */}
+        <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
     </Router>
   );

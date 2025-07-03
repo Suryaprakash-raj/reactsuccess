@@ -341,66 +341,72 @@ function About() {
               >
                 <h3 className="mb-4">Technical Skills</h3>
                 <div className="row">
-                  {skills.map((skill, index) => (
-                    <motion.div
-                      key={index}
-                      className="col-md-6 mb-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 + 0.4 }}
-                    >
-                      <motion.div
-                        className="skill-item"
-                        whileHover={{
-                          scale: 1.05,
-                          boxShadow: `0 0 15px ${skill.color}`,
-                        }}
-                      >
-                        <div className="d-flex align-items-center mb-2">
-                          <span className="tech-icon me-2">{skill.icon}</span>
-                          <span className="fw-medium">{skill.name}</span>
-                          <span
-                            className="ms-auto"
-                            style={{ color: skill.color }}
-                          >
-                            {skill.level}%
-                          </span>
-                        </div>
-                        <motion.div
-                          className="progress"
-                          style={{
-                            height: "10px",
-                            backgroundColor: `${skill.color}20`,
-                          }}
-                          initial={{ width: 0 }}
-                          animate={{ width: "100%" }}
-                          transition={{ delay: index * 0.1 + 0.6 }}
-                        >
-                          <motion.div
-                            className="progress-bar"
-                            style={{
-                              width: `${skill.level}%`,
-                              backgroundColor: skill.color,
-                              boxShadow: `0 0 10px ${skill.color}`,
-                            }}
-                            initial={{ scaleX: 0 }}
-                            animate={{ scaleX: 1 }}
-                            transition={{
-                              delay: index * 0.1 + 0.8,
-                              type: "spring",
-                              stiffness: 100,
-                            }}
-                            whileHover={{
-                              scaleY: 1.5,
-                              originY: 1,
-                              transition: { duration: 0.3 },
-                            }}
-                          />
-                        </motion.div>
-                      </motion.div>
-                    </motion.div>
-                  ))}
-                </div>
+  {skills.map((skill, index) => (
+    <motion.div
+      key={index}
+      className="col-md-6 mb-4"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 + 0.4 }}
+    >
+      <motion.div
+        className="skill-item"
+        whileHover={{
+          scale: 1.05,
+          boxShadow: `0 0 15px ${skill.color}`,
+        }}
+      >
+        <div className="d-flex align-items-center mb-2">
+          <span className="tech-icon me-2">{skill.icon}</span>
+          <span className="fw-medium">{skill.name}</span>
+          {/* Apply styles to the percentage text */}
+          <span
+            className="ms-auto"
+            style={{
+              color: '#fff', // Ensure white text
+              textShadow: '0 0 5px rgba(0, 0, 0, 0.8)', // Add shadow for contrast
+              fontWeight: 'bold',
+            }}
+          >
+            {skill.level}%
+          </span>
+        </div>
+        <motion.div
+          className="progress"
+          style={{
+            height: "10px",
+            backgroundColor: `${skill.color}20`,
+          }}
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+          transition={{ delay: index * 0.1 + 0.6 }}
+        >
+          <motion.div
+            className="progress-bar"
+            style={{
+              width: `${skill.level}%`,
+              backgroundColor: skill.color,
+              boxShadow: `0 0 10px ${skill.color}`,
+            }}
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{
+              delay: index * 0.1 + 0.8,
+              type: "spring",
+              stiffness: 100,
+            }}
+            whileHover={{
+              scaleY: 1.5,
+              originY: 1,
+              transition: { duration: 0.3 },
+            }}
+          />
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  ))}
+</div>
+
               </motion.div>
 
               {/* Certifications Section */}
